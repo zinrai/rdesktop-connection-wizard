@@ -17,7 +17,7 @@ This Python-based CLI tool simplifies the process of connecting to remote deskto
 Run the script from the command line:
 
 ```
-./rdesktop-connection-wizard.py
+./rdesktop-conn-wizard.py
 ```
 
 Follow the prompts to configure your rdesktop connection.
@@ -44,7 +44,7 @@ By default, the connection will be established in fullscreen mode. The wizard in
 ## Example
 
 ```
-$ RDESKTOP_REMOTE_HOST="192.0.2.10" ./rdesktop-connection-wizard.py
+$ RDESKTOP_REMOTE_HOST="192.0.2.10" ./rdesktop-conn-wizard.py
 rdesktop Connection Wizard
 ==========================
 Use default settings? (Y/n) [Y]:
