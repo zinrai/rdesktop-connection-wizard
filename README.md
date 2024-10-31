@@ -26,6 +26,7 @@ Follow the prompts to configure your rdesktop connection.
 
 - Keyboard layout: en-us
 - Fullscreen mode: Enabled
+- Local X cursor: Enabled
 
 You can change these defaults by modifying the `DEFAULT_KEYBOARD` and `DEFAULT_FULLSCREEN` variables in the script.
 

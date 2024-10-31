@@ -8,6 +8,9 @@ import shutil
 DEFAULT_KEYBOARD = "en-us"
 DEFAULT_FULLSCREEN = True
 
+# https://github.com/rdesktop/rdesktop/issues/86
+DEFAULT_MOUSE_CURSOR = True
+
 def get_input(prompt, default=None):
     if default:
         user_input = input(f"{prompt} [{default}]: ").strip()
@@ -51,16 +54,19 @@ def main():
     if use_defaults:
         keyboard = DEFAULT_KEYBOARD
         fullscreen = DEFAULT_FULLSCREEN
+        mouse_cursor = DEFAULT_MOUSE_CURSOR
     else:
         keyboard = get_input("Keyboard layout (e.g., en-us, ja)", DEFAULT_KEYBOARD)
         fullscreen = get_input("Use fullscreen mode? (Y/n)", "Y").lower() != 'n'
+        mouse_cursor = get_input("Use local X cursor? (Y/n)", "Y").lower() != 'n'
 
     user = get_input("Username (include domain if necessary, e.g., DOMAIN\\\\user)")
     host = get_remote_host()
 
     fullscreen_flag = "-f" if fullscreen else ""
+    mouse_cursor_flag = "-M" if mouse_cursor else ""
 
-    command = f"rdesktop {fullscreen_flag} -k {keyboard} -u {user} {host}"
+    command = f"rdesktop {fullscreen_flag} {mouse_cursor_flag} -k {keyboard} -u {user} {host}"
 
     confirm = get_input("Do you want to execute this command now? (Y/n)", "Y").lower() != 'n'
     if confirm:
